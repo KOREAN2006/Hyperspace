@@ -80,10 +80,13 @@
     <script>
       const container = document.querySelector("#Channels");
 
+      console.time("Puffball");
       fetch("/.netlify/functions/api")
         .then(response => response.json())
         .then(data => {
           const FrontOrderedChannelList = data;
+          consloe.table(FrontOrderedChannelList);
+          console.timeLog("Puffball");
           
           for(const channel of FrontOrderedChannelList){
           //채널 카드 생성
@@ -99,6 +102,7 @@
           `;
           container.appendChild(card);
           card.classList.add('Card');
+          console.timeEnd("Puffball");
         };
       });
       /*

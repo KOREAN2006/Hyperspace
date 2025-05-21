@@ -102,7 +102,14 @@
           container.appendChild(card);
           card.classList.add('Card');
         };
-        console.table(FrontOrderedChannelList, ["title", "subscriberCount", "videoCount", "videoCount"]);
+
+        const ConsoleTableChannels = FrontOrderedChannelList.map(FrontOrderedChannelList => ({
+          name: FrontOrderedChannelList.snippet.title,
+          subscriberCount: FrontOrderedChannelList.statistics.subscriberCount,
+          viewCount: FrontOrderedChannelList.statistics.viewCount,
+          videoCount: FrontOrderedChannelList.statistics.videoCount
+        }));
+        console.table(FrontOrderedChannelList, ["name", "subscriberCount", "videoCount", "videoCount"]);
         console.timeEnd("Puffball");
       });
       /*

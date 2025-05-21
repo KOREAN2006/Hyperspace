@@ -85,7 +85,7 @@
         .then(response => response.json())
         .then(data => {
           const FrontOrderedChannelList = data;
-          console.table(FrontOrderedChannelList);
+          console.table(FrontOrderedChannelList, ["title", "statistics.subscriberCount", "statistics.videoCount", "statistics.videoCount"]);
           console.timeLog("Puffball");
           
           for(const channel of FrontOrderedChannelList){

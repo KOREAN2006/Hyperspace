@@ -62,9 +62,11 @@
       .Card:hover{
         transform: scale(1.05);
       }
+      .Link{
+        margin: 12px;
+      }
       .Cirbor{
         width: 120px;
-        margin: 12px;
         border-radius: 50%;
         border: 4px solid #999;
         transition: transform 0.3s ease;
@@ -91,7 +93,7 @@
           //채널 카드 생성
           const card = document.createElement("div");
           card.innerHTML = `
-            <a href="https://youtube.com/channel/${channel.id}/videos" target="_blank">
+            <a href="https://youtube.com/channel/${channel.id}/videos" target="_blank" class="Link">
               <img src="${channel.snippet.thumbnails.medium.url}" alt="${channel.snippet.title}의 프로필 사진"  class="Cirbor">
             </a>
             <h3>${channel.snippet.title}</h3>

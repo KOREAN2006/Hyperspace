@@ -85,7 +85,7 @@
         .then(response => response.json())
         .then(data => {
           const FrontOrderedChannelList = data;
-          consloe.table(FrontOrderedChannelList);
+          console.table(FrontOrderedChannelList);
           console.timeLog("Puffball");
           
           for(const channel of FrontOrderedChannelList){

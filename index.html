@@ -85,7 +85,6 @@
         .then(response => response.json())
         .then(data => {
           const FrontOrderedChannelList = data;
-          console.table(FrontOrderedChannelList, ["title", "statistics.subscriberCount", "statistics.videoCount", "statistics.videoCount"]);
           console.timeLog("Puffball");
           
           for(const channel of FrontOrderedChannelList){
@@ -102,8 +101,9 @@
           `;
           container.appendChild(card);
           card.classList.add('Card');
-          console.timeEnd("Puffball");
         };
+        console.table(FrontOrderedChannelList, ["title", "subscriberCount", "videoCount", "videoCount"]);
+        console.timeEnd("Puffball");
       });
       /*
       git add . 전부 추가

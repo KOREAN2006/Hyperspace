@@ -33,7 +33,7 @@ exports.handler = async function(event, context){
     };
   };
 
-  const ConsoleTableChannels = OrderedChannelList.map(OrderedChannelList => ({
+  const CleanChannelList = OrderedChannelList.map(OrderedChannelList => ({
     ID: OrderedChannelList.id,
     Name: OrderedChannelList.snippet.title,
     SubscriberCount: OrderedChannelList.statistics.subscriberCount,
@@ -45,8 +45,17 @@ exports.handler = async function(event, context){
     etag: OrderedChannelList.etag
   }));
 
+  const TimeSourse = new Date();
+  const Information = {
+    Time: TimeSourse.toISOString()
+  }
+  const FunctionData = {
+    CleanChannelList,
+    Information
+  }
+
   return{
     statusCode: 200,
-    body: JSON.stringify(ConsoleTableChannels)
+    body: JSON.stringify(FunctionData)
   };
 };

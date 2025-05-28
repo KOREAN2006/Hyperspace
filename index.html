@@ -87,10 +87,10 @@
       fetch("/.netlify/functions/api")
         .then(response => response.json())
         .then(data => {
-          const FrontConsoleTableChannels = data;
+          const ConsoleTableChannels = data;
           console.timeLog("Puffball");
           
-          for(const channel of FrontConsoleTableChannels){
+          for(const channel of ConsoleTableChannels.CleanChannelList){
           //채널 카드 생성
           const card = document.createElement("div");
           card.innerHTML = `
@@ -106,8 +106,8 @@
           card.classList.add('Card');
         };
 
-        console.table(FrontConsoleTableChannels); //임시 확인용
-        console.table(FrontConsoleTableChannels, ["Name", "SubscriberCount", "ViewCount", "VideoCount"]);
+        console.table(ConsoleTableChannels); //임시 확인용
+        console.table(ConsoleTableChannels, ["Name", "SubscriberCount", "ViewCount", "VideoCount"]);
         console.timeEnd("Puffball");
       });
       /*

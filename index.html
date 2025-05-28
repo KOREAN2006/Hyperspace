@@ -80,6 +80,7 @@
   <body>
     <p id="Name"><strong>Hyperspace</strong></p>
     <div id="Channels"></div>
+    <button id="Download" onclick="Download()">download data</button>
     <script>
       const container = document.querySelector("#Channels");
 
@@ -109,6 +110,20 @@
         console.log(ConsoleTableChannels.Information)
         console.table(ConsoleTableChannels.CleanChannelList, ["Name", "SubscriberCount", "ViewCount", "VideoCount"]);
         console.timeEnd("Puffball");
+
+        function Download(){
+          const DownloadData = JSON.stringify(ConsoleTableChannels, null, 2);
+          const DownloadBlob = new Blob([DownloadData], { type: "application/json" });
+          const DownloadLink = URL.createObjectURL(DownloadBlob);
+
+          const DownloadButton = document.createElement("a");
+          DownloadButton.href = DownloadLink;
+          DownloadButton.download = `Hyperspace_${ConsoleTableChannels.Information.Time}.json`;
+          document.body.appendChild(DownloadButton);
+          DownloadButton.click();
+          document.body.removeChild(DownloadButton);
+          URL.revokeObjectURL(DownloadLink);
+        }
       });
       /*
       git add . 전부 추가

@@ -33,8 +33,20 @@ exports.handler = async function(event, context){
     };
   };
 
+  const ConsoleTableChannels = OrderedChannelList.map(OrderedChannelList => ({
+    ID: FrontOrderedChannelList.id,
+    Name: FrontOrderedChannelList.snippet.title,
+    SubscriberCount: FrontOrderedChannelList.statistics.subscriberCount,
+    ViewCount: FrontOrderedChannelList.statistics.viewCount,
+    VideoCount: FrontOrderedChannelList.statistics.videoCount,
+    PFP: FrontOrderedChannelList.snippet.thumbnails.medium.url,
+    Handle: FrontOrderedChannelList.snippet.customUrl,
+    Description: FrontOrderedChannelList.snippet.description,
+    etag: FrontOrderedChannelList.etag
+  }));
+
   return{
     statusCode: 200,
-    body: JSON.stringify(OrderedChannelList)
+    body: JSON.stringify(ConsoleTableChannels)
   };
 };

@@ -87,38 +87,27 @@
       fetch("/.netlify/functions/api")
         .then(response => response.json())
         .then(data => {
-          const FrontOrderedChannelList = data;
+          const FrontConsoleTableChannels = data;
           console.timeLog("Puffball");
           
-          for(const channel of FrontOrderedChannelList){
+          for(const channel of FrontConsoleTableChannels){
           //채널 카드 생성
           const card = document.createElement("div");
           card.innerHTML = `
-            <a href="https://youtube.com/channel/${channel.id}/videos" target="_blank" class="Link">
-              <img src="${channel.snippet.thumbnails.medium.url}" alt="${channel.snippet.title}의 프로필 사진"  class="Cirbor">
+            <a href="https://youtube.com/channel/${ID}/videos" target="_blank" class="Link">
+              <img src="${PFP}" alt="${Name}의 프로필 사진"  class="Cirbor">
             </a>
-            <h3>${channel.snippet.title}</h3>
-            <p>구독자 ${channel.statistics.subscriberCount}명</p>
-            <p>조회수 ${channel.statistics.viewCount}회</p>
-            <p>동영상 ${channel.statistics.videoCount}개</p>
+            <h3>${Name}</h3>
+            <p>구독자 ${SubscriberCount}명</p>
+            <p>조회수 ${ViewCount}회</p>
+            <p>동영상 ${VideoCount}개</p>
           `;
           container.appendChild(card);
           card.classList.add('Card');
         };
 
-        const ConsoleTableChannels = FrontOrderedChannelList.map(FrontOrderedChannelList => ({
-          ID: FrontOrderedChannelList.id,
-          Name: FrontOrderedChannelList.snippet.title,
-          SubscriberCount: FrontOrderedChannelList.statistics.subscriberCount,
-          ViewCount: FrontOrderedChannelList.statistics.viewCount,
-          VideoCount: FrontOrderedChannelList.statistics.videoCount,
-          PFP: FrontOrderedChannelList.snippet.thumbnails.medium.url,
-          Handle: FrontOrderedChannelList.snippet.customUrl,
-          Description: FrontOrderedChannelList.snippet.description,
-          etag: FrontOrderedChannelList.etag
-        }));
-        console.table(ConsoleTableChannels); //임시 확인용
-        console.table(ConsoleTableChannels, ["Name", "SubscriberCount", "ViewCount", "VideoCount"]);
+        console.table(FrontConsoleTableChannels); //임시 확인용
+        console.table(FrontConsoleTableChannels, ["Name", "SubscriberCount", "ViewCount", "VideoCount"]);
         console.timeEnd("Puffball");
       });
       /*

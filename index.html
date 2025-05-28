@@ -112,6 +112,7 @@
           viewCount: FrontOrderedChannelList.statistics.viewCount,
           videoCount: FrontOrderedChannelList.statistics.videoCount
         }));
+        console.table(FrontOrderedChannelList); //임시 확인용
         console.table(ConsoleTableChannels, ["name", "subscriberCount", "viewCount", "videoCount"]);
         console.timeEnd("Puffball");
       });

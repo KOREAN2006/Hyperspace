@@ -106,8 +106,7 @@
           card.classList.add('Card');
         };
 
-        console.table(ConsoleTableChannels); //임시 확인용
-        console.table(ConsoleTableChannels, ["Name", "SubscriberCount", "ViewCount", "VideoCount"]);
+        console.table(ConsoleTableChannels.CleanChannelList, ["Name", "SubscriberCount", "ViewCount", "VideoCount"]);
         console.timeEnd("Puffball");
       });
       /*

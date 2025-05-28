@@ -94,13 +94,13 @@
           //채널 카드 생성
           const card = document.createElement("div");
           card.innerHTML = `
-            <a href="https://youtube.com/channel/${ID}/videos" target="_blank" class="Link">
-              <img src="${PFP}" alt="${Name}의 프로필 사진"  class="Cirbor">
+            <a href="https://youtube.com/channel/${channel.ID}/videos" target="_blank" class="Link">
+              <img src="${channel.PFP}" alt="${channel.Name}의 프로필 사진"  class="Cirbor">
             </a>
-            <h3>${Name}</h3>
-            <p>구독자 ${SubscriberCount}명</p>
-            <p>조회수 ${ViewCount}회</p>
-            <p>동영상 ${VideoCount}개</p>
+            <h3>${channel.Name}</h3>
+            <p>구독자 ${channel.SubscriberCount}명</p>
+            <p>조회수 ${channel.ViewCount}회</p>
+            <p>동영상 ${channel.VideoCount}개</p>
           `;
           container.appendChild(card);
           card.classList.add('Card');

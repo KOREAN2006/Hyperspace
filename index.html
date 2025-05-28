@@ -90,12 +90,13 @@
     <button id="Basket" onclick="Download()">download data</button>
     <script>
       const container = document.querySelector("#Channels");
+      let ConsoleTableChannels
 
       console.time("Puffball");
       fetch("/.netlify/functions/api")
         .then(response => response.json())
         .then(data => {
-          const ConsoleTableChannels = data;
+          ConsoleTableChannels = data;
           console.timeLog("Puffball");
           
           for(const channel of ConsoleTableChannels.CleanChannelList){

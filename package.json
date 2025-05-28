@@ -1,6 +1,6 @@
 {
   "name": "Hyperspace",
-  "version": "2.1",
+  "version": "2.2",
   "dependencies": {
     "node-fetch": "^2.6.9"
   }

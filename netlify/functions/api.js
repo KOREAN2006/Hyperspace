@@ -34,15 +34,15 @@ exports.handler = async function(event, context){
   };
 
   const ConsoleTableChannels = OrderedChannelList.map(OrderedChannelList => ({
-    ID: FrontOrderedChannelList.id,
-    Name: FrontOrderedChannelList.snippet.title,
-    SubscriberCount: FrontOrderedChannelList.statistics.subscriberCount,
-    ViewCount: FrontOrderedChannelList.statistics.viewCount,
-    VideoCount: FrontOrderedChannelList.statistics.videoCount,
-    PFP: FrontOrderedChannelList.snippet.thumbnails.medium.url,
-    Handle: FrontOrderedChannelList.snippet.customUrl,
-    Description: FrontOrderedChannelList.snippet.description,
-    etag: FrontOrderedChannelList.etag
+    ID: OrderedChannelList.id,
+    Name: OrderedChannelList.snippet.title,
+    SubscriberCount: OrderedChannelList.statistics.subscriberCount,
+    ViewCount: OrderedChannelList.statistics.viewCount,
+    VideoCount: OrderedChannelList.statistics.videoCount,
+    PFP: OrderedChannelList.snippet.thumbnails.medium.url,
+    Handle: OrderedChannelList.snippet.customUrl,
+    Description: OrderedChannelList.snippet.description,
+    etag: OrderedChannelList.etag
   }));
 
   return{

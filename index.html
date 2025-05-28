@@ -107,13 +107,18 @@
         };
 
         const ConsoleTableChannels = FrontOrderedChannelList.map(FrontOrderedChannelList => ({
-          name: FrontOrderedChannelList.snippet.title,
-          subscriberCount: FrontOrderedChannelList.statistics.subscriberCount,
-          viewCount: FrontOrderedChannelList.statistics.viewCount,
-          videoCount: FrontOrderedChannelList.statistics.videoCount
+          ID: FrontOrderedChannelList.id,
+          Name: FrontOrderedChannelList.snippet.title,
+          SubscriberCount: FrontOrderedChannelList.statistics.subscriberCount,
+          ViewCount: FrontOrderedChannelList.statistics.viewCount,
+          VideoCount: FrontOrderedChannelList.statistics.videoCount,
+          PFP: FrontOrderedChannelList.snippet.thumbnails.medium.url,
+          Handle: FrontOrderedChannelList.snippet.customUrl,
+          Description: FrontOrderedChannelList.snippet.description,
+          etag: FrontOrderedChannelList.etag
         }));
-        console.table(FrontOrderedChannelList); //임시 확인용
-        console.table(ConsoleTableChannels, ["name", "subscriberCount", "viewCount", "videoCount"]);
+        console.table(ConsoleTableChannels); //임시 확인용
+        console.table(ConsoleTableChannels, ["Name", "SubscriberCount", "ViewCount", "VideoCount"]);
         console.timeEnd("Puffball");
       });
       /*

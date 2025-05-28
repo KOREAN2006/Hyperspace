@@ -47,6 +47,8 @@ exports.handler = async function(event, context){
 
   const TimeSourse = new Date();
   const Information = {
+    CleanChannelListVersion: 1,
+    InformationVersion: 1,
     Time: TimeSourse.toISOString()
   }
   const FunctionData = {
